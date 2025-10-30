@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Majik Bloom Seeds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-purple: #1a0b2e;
+            --deep-purple: #2d1b47;
+            --magic-purple: #5d3fd3;
+            --wizard-blue: #4169e1;
+            --magic-gold: #d4af37;
+            --magic-silver: #c0c0c0;
+            --magic-green: #2e8b57;
+            --glow-pink: #ff6ec7;
+            --text-light: #f0e6ff;
+            --text-dark: #1a0b2e;
+            --shadow-dark: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-purple);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a0b2e"/><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="%232d1b47" opacity="0.3"/></svg>');
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'MedievalSharp', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 11, 46, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 95%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px var(--shadow-dark);
+            border-bottom: 2px solid var(--magic-gold);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--magic-gold);
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--magic-gold), var(--magic-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.3);
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: var(--magic-silver);
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 8px 0;
+            position: relative;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--magic-gold), var(--magic-purple));
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--magic-gold);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        nav ul li a.active {
+            color: var(--magic-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            background-color: var(--glow-pink);
+            color: var(--dark-purple);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            box-shadow: 0 0 10px var(--glow-pink);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--magic-gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--dark-purple) 100%);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Pages */
+        .content-page {
+            padding: 80px 0;
+            background-color: rgba(26, 11, 46, 0.7);
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: rgba(45, 27, 71, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card h2 {
+            color: var(--magic-gold);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--magic-gold);
+            padding-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: var(--magic-green);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .info-card p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-card ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .info-card ul li:before {
+            content: '✦';
+            color: var(--magic-gold);
+            position: absolute;
+            left: -20px;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 25px;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--magic-gold);
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .compliance-notice {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--magic-gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .legal-warning {
+            background: rgba(255, 110, 199, 0.1);
+            border-left: 4px solid var(--glow-pink);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--magic-purple), var(--wizard-blue));
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-purple);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--magic-gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 0,100 100,100" fill="%232d1b47" opacity="0.1"/></svg>');
+            background-size: 150px 150px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--magic-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--magic-gold);
+            color: var(--dark-purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: var(--magic-silver);
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--deep-purple);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 15px var(--shadow-dark);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Floating Magic Elements */
+        .floating-crystal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(93, 63, 211, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--magic-purple);
+            animation: floatAround 15s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Magic Elements -->
+    <div class="floating-crystal" style="top: 20%; left: 10%;"></div>
+    <div class="floating-crystal" style="top: 60%; left: 80%; animation-delay: -5s;"></div>
+    <div class="floating-crystal" style="top: 80%; left: 20%; animation-delay: -10s;"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hat-wizard"></i>
+                </div>
+                <div>
+                    <h1><a href="index.html">Majik Bloom Seeds</a></h1>
+                    <span class="tagline">Cultivate the Magic</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="seeds.html">Seeds</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our magical seeds, shipping policies, and legal compliance.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="content-page">
+        <div class="container">
+            <div class="content-container">
+                <!-- Legal Compliance Notice -->
+                <div class="legal-warning">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Legal Notice</h3>
+                    <p>Majik Bloom Seeds sells all seeds as collectible souvenirs and for genetic preservation purposes only. It is the responsibility of the buyer to ensure compliance with local, state, and federal laws regarding hemp and cannabis seeds. We ship throughout the US in compliance with the 2018 Farm Bill, but germination may be restricted in some areas.</p>
+                </div>
+
+                <!-- Product Questions -->
+                <div class="info-card">
+                    <h2>Product Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What types of seeds do you offer?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a variety of high-quality, genetically stable hemp seeds with various cannabinoid profiles. Our collection includes CBD-rich, CBG-rich, and other specialty varieties, all carefully selected for their unique properties and growing characteristics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are your seeds feminized?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, the majority of our seeds are feminized to ensure female plants, which produce the cannabinoid-rich flowers. We clearly label each product with its specific characteristics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is the germination rate of your seeds?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our seeds have a germination rate of 85% or higher when stored and handled properly. We recommend proper storage conditions (cool, dark, and dry) to maintain viability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How should I store my seeds?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For optimal preservation, store seeds in a cool, dark, and dry place. Many collectors use airtight containers with silica gel packets to maintain proper humidity levels.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping & Delivery -->
+                <div class="info-card">
+                    <h2>Shipping & Delivery</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you ship throughout the United States?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we ship to all 50 states in compliance with federal law. All seeds are sold as collectible souvenirs and for genetic preservation purposes only, in accordance with the 2018 Farm Bill.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does shipping take?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Standard shipping typically takes 5-7 business days. We also offer expedited shipping options at checkout for faster delivery. All orders are processed within 1-2 business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How are seeds packaged for shipping?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Seeds are carefully packaged in discreet, protective containers to ensure they arrive in perfect condition. Our packaging is designed to protect the seeds from damage during transit while maintaining their privacy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer international shipping?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Currently, we only ship within the United States. International shipping regulations for hemp seeds vary widely, and we cannot guarantee compliance with all international laws.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal & Compliance -->
+                <div class="info-card">
+                    <h2>Legal & Compliance</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are your seeds legal to purchase?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, our seeds contain less than 0.3% THC on a dry weight basis, making them legal under the 2018 Farm Bill. However, it is the buyer's responsibility to verify local and state regulations before purchasing or germinating seeds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is your compliance statement?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Majik Bloom Seeds operates in full compliance with the 2018 Farm Bill. All seeds are sold as collectible souvenirs and for genetic preservation purposes only. We do not encourage or endorse the germination of seeds in jurisdictions where it may be prohibited by law.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you provide certificates of analysis?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide Certificates of Analysis (COAs) for our seed varieties upon request. These documents verify the cannabinoid profiles and compliance with federal regulations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is the minimum age to purchase?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You must be at least 21 years of age to purchase from Majik Bloom Seeds. By placing an order, you confirm that you meet this age requirement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Returns & Guarantees -->
+                <div class="info-card">
+                    <h2>Returns & Guarantees</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is your return policy?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Due to the nature of our products, we do not accept returns on seeds. However, if you receive damaged or incorrect items, please contact us within 7 days of receipt, and we will work to resolve the issue.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer germination guarantees?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While we ensure our seeds are of the highest quality, we cannot guarantee germination rates as they are affected by storage conditions and cultivation methods after purchase. We recommend proper storage and handling to maintain viability.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What if my order doesn't arrive?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If your order hasn't arrived within the expected timeframe, please contact us with your order number. We'll track your package and work with you to resolve any shipping issues.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="info-card">
+                    <h2>Additional Information</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer wholesale pricing?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer wholesale pricing for qualified businesses. Please contact our wholesale department at wholesale@majikbloom.com for more information and qualification requirements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I visit your physical location?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We operate primarily as an online retailer and do not have a public storefront. All orders are processed through our secure online platform.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can I contact customer service?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our customer service team is available via our contact form. We typically respond within 24-48 hours during business days.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compliance-notice">
+                    <h3>Still Have Questions?</h3>
+                    <p>If you couldn't find the answer you were looking for, please don't hesitate to contact our customer service team. We're here to help you with any questions about our magical seeds and compliance requirements.</p>
+                    <a href="contact.html" class="btn" style="margin-top: 15px;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Majik Bloom Seeds</h3>
+                    <p>Cultivating magical hemp experiences through premium genetics and mystical cultivation practices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="seeds.html">Seeds</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Majik Bloom Seeds | All rights reserved.</p>
+                
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
+                });
+            }
+            
+            // FAQ Accordion Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Cart functionality
+            let cart = JSON.parse(localStorage.getItem('majikBloomCart')) || [];
+            
+            // Update cart count
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                }
+            }
+            
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

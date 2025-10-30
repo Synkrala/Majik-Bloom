@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information | Majik Bloom Seeds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-purple: #1a0b2e;
+            --deep-purple: #2d1b47;
+            --magic-purple: #5d3fd3;
+            --wizard-blue: #4169e1;
+            --magic-gold: #d4af37;
+            --magic-silver: #c0c0c0;
+            --magic-green: #2e8b57;
+            --glow-pink: #ff6ec7;
+            --text-light: #f0e6ff;
+            --text-dark: #1a0b2e;
+            --shadow-dark: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-purple);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a0b2e"/><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="%232d1b47" opacity="0.3"/></svg>');
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'MedievalSharp', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 11, 46, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 95%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px var(--shadow-dark);
+            border-bottom: 2px solid var(--magic-gold);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--magic-gold);
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--magic-gold), var(--magic-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.3);
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: var(--magic-silver);
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 8px 0;
+            position: relative;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--magic-gold), var(--magic-purple));
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--magic-gold);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        nav ul li a.active {
+            color: var(--magic-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            background-color: var(--glow-pink);
+            color: var(--dark-purple);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            box-shadow: 0 0 10px var(--glow-pink);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--magic-gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--dark-purple) 100%);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Pages */
+        .content-page {
+            padding: 80px 0;
+            background-color: rgba(26, 11, 46, 0.7);
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: rgba(45, 27, 71, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card h2 {
+            color: var(--magic-gold);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--magic-gold);
+            padding-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: var(--magic-green);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .info-card p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-card ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .info-card ul li:before {
+            content: '✦';
+            color: var(--magic-gold);
+            position: absolute;
+            left: -20px;
+        }
+
+        .shipping-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .shipping-timeline:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--magic-purple), var(--wizard-blue));
+            z-index: 1;
+        }
+
+        .timeline-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--magic-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--dark-purple);
+            font-size: 1.5rem;
+        }
+
+        .timeline-step h4 {
+            color: var(--magic-gold);
+            margin-bottom: 10px;
+        }
+
+        .shipping-notice {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--magic-gold);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--magic-purple), var(--wizard-blue));
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-purple);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--magic-gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 0,100 100,100" fill="%232d1b47" opacity="0.1"/></svg>');
+            background-size: 150px 150px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--magic-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--magic-gold);
+            color: var(--dark-purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: var(--magic-silver);
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--deep-purple);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 15px var(--shadow-dark);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .shipping-timeline {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .shipping-timeline:before {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Floating Magic Elements */
+        .floating-crystal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(93, 63, 211, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--magic-purple);
+            animation: floatAround 15s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Magic Elements -->
+    <div class="floating-crystal" style="top: 20%; left: 10%;"></div>
+    <div class="floating-crystal" style="top: 60%; left: 80%; animation-delay: -5s;"></div>
+    <div class="floating-crystal" style="top: 80%; left: 20%; animation-delay: -10s;"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hat-wizard"></i>
+                </div>
+                <div>
+                    <h1><a href="index.html">Majik Bloom Seeds</a></h1>
+                    <span class="tagline">Cultivate the Magic</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="seeds.html">Seeds</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Shipping Information</h1>
+            <p>Learn about our magical shipping process and delivery timelines</p>
+        </div>
+    </section>
+
+    <!-- Shipping Content -->
+    <section class="content-page">
+        <div class="container">
+            <div class="content-container">
+                <div class="info-card">
+                    <h2>Magical Delivery Process</h2>
+                    <p>At Majik Bloom Seeds, we ensure your magical seeds are delivered with care and precision. Our shipping process is designed to maintain the mystical properties of our seeds throughout their journey to you.</p>
+                    
+                    <div class="shipping-timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <h4>Order Placed</h4>
+                            <p>Within 24 hours</p>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>Seed Preparation</h4>
+                            <p>1-2 business days</p>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h4>Shipping</h4>
+                            <p>3-7 business days</p>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4>Delivery</h4>
+                            <p>At your doorstep</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>Shipping Options</h2>
+                    
+                    <h3>Standard Shipping</h3>
+                    <p>Our standard shipping takes 5-7 business days and is completely free for orders over $50. For orders under $50, a flat rate of $5.99 applies.</p>
+                    
+                    <h3>Expedited Shipping</h3>
+                    <p>Need your magical seeds sooner? Choose our expedited shipping for delivery within 2-3 business days. Additional fee of $12.99 applies.</p>
+                    
+                    <h3>International Shipping</h3>
+                    <p>We ship to most countries worldwide. International shipping times vary by location (typically 10-21 business days). Additional customs fees may apply.</p>
+                </div>
+
+                <div class="info-card">
+                    <h2>Order Tracking</h2>
+                    <p>Once your order ships, you'll receive a tracking number via email. Use this number to follow your package's journey through our magical delivery network.</p>
+                    
+                    <p>If you have any questions about your shipment, our customer service wizards are here to help. Contact us at <a href="mailto:shipping@majikbloom.com">shipping@majikbloom.com</a>.</p>
+                </div>
+
+                <div class="shipping-notice">
+                    <h3>Important Shipping Notice</h3>
+                    <p>All seeds are shipped in discreet, protective packaging to ensure their safety and preserve their magical properties. We are not responsible for delays caused by customs, weather, or other unforeseen magical circumstances.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="seeds.html" class="btn">Start Shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Majik Bloom Seeds</h3>
+                    <p>Cultivating magical hemp experiences through premium genetics and mystical cultivation practices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="seeds.html">Seeds</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="shipping.html" class="active">Shipping Info</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Majik Bloom Seeds | All rights reserved.</p>
+                </div>
+        
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
+                });
+            }
+            
+            // Cart functionality
+            let cart = JSON.parse(localStorage.getItem('majikBloomCart')) || [];
+            
+            // Update cart count
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                }
+            }
+            
+            // Initialize cart count
+            updateCartCount();
+            
+            // Create more floating crystals
+            for (let i = 0; i < 5; i++) {
+                createFloatingCrystal();
+            }
+            
+            function createFloatingCrystal() {
+                const crystal = document.createElement('div');
+                crystal.className = 'floating-crystal';
+                crystal.style.left = Math.random() * 100 + '%';
+                crystal.style.top = Math.random() * 100 + '%';
+                crystal.style.animationDelay = '-' + (Math.random() * 20) + 's';
+                crystal.style.width = (10 + Math.random() * 20) + 'px';
+                crystal.style.height = crystal.style.width;
+                
+                document.body.appendChild(crystal);
+            }
+        });
+    </script>
+</body>
+</html>

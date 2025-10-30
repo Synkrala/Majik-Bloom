@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Magical Seeds | Majik Bloom Seeds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-purple: #1a0b2e;
+            --deep-purple: #2d1b47;
+            --magic-purple: #5d3fd3;
+            --wizard-blue: #4169e1;
+            --magic-gold: #d4af37;
+            --magic-silver: #c0c0c0;
+            --magic-green: #2e8b57;
+            --glow-pink: #ff6ec7;
+            --text-light: #f0e6ff;
+            --text-dark: #1a0b2e;
+            --shadow-dark: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-purple);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a0b2e"/><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="%232d1b47" opacity="0.3"/></svg>');
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(93, 63, 211, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 110, 199, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'MedievalSharp', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 11, 46, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px var(--shadow-dark);
+            border-bottom: 2px solid var(--magic-gold);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--magic-gold);
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--magic-gold), var(--magic-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.3);
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: var(--magic-silver);
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 8px 0;
+            position: relative;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--magic-gold), var(--magic-purple));
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--magic-gold);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        nav ul li a.active {
+            color: var(--magic-gold);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            background-color: var(--glow-pink);
+            color: var(--dark-purple);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            box-shadow: 0 0 10px var(--glow-pink);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--magic-gold);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--dark-purple) 100%);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Products Page */
+        .products-page {
+            padding: 80px 0;
+            background-color: rgba(26, 11, 46, 0.7);
+        }
+
+        .filter-section {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-select {
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--magic-gold);
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            color: var(--text-light);
+            width: 250px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--magic-gold);
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            background-color: var(--magic-gold);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            color: var(--dark-purple);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: var(--magic-purple);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, rgba(45, 27, 71, 0.8), rgba(26, 11, 46, 0.9));
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(93, 63, 211, 0.1), transparent);
+            z-index: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: var(--magic-gold);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 27, 71, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .product-info {
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--magic-gold);
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--magic-silver);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--magic-gold);
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--magic-purple), var(--wizard-blue));
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-add-to-cart {
+            width: 100%;
+            margin-top: 10px;
+            background: linear-gradient(45deg, var(--magic-green), var(--wizard-blue));
+        }
+
+        .btn-add-to-cart:hover {
+            background: linear-gradient(45deg, var(--wizard-blue), var(--magic-green));
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+
+        .no-products {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            background: rgba(45, 27, 71, 0.5);
+            border-radius: 10px;
+            border: 1px solid var(--magic-gold);
+        }
+
+        .no-products h3 {
+            color: var(--magic-gold);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-purple);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--magic-gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><polygon points="50,0 0,100 100,100" fill="%232d1b47" opacity="0.1"/></svg>');
+            background-size: 150px 150px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--magic-gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--magic-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--magic-gold);
+            color: var(--dark-purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: var(--magic-silver);
+            font-style: italic;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--deep-purple);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 15px var(--shadow-dark);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .filter-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .search-box input {
+                width: 200px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating Magic Elements */
+        .floating-crystal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(93, 63, 211, 0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--magic-purple);
+            animation: floatAround 15s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes floatAround {
+            5% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        /* Enhanced Magical Notifications */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--deep-purple), var(--dark-purple));
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4), 0 0 15px rgba(93, 63, 211, 0.5);
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 350px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transform: translateX(400px);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            font-family: 'MedievalSharp', cursive;
+            backdrop-filter: blur(10px);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification.hide {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+
+        .notification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .notification::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--magic-purple), var(--magic-gold), var(--glow-pink), var(--wizard-blue));
+            border-radius: 10px;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .notification:hover::after {
+            opacity: 0.7;
+        }
+
+        .notification-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .notification-message {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .notification.info {
+            border-left: 4px solid var(--wizard-blue);
+        }
+
+        .notification.info .notification-icon {
+            color: var(--wizard-blue);
+            text-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+        }
+
+        .notification.error {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .notification.error .notification-icon {
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--magic-green);
+        }
+
+        .notification.success .notification-icon {
+            color: var(--magic-green);
+            text-shadow: 0 0 10px rgba(46, 139, 87, 0.5);
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 15px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animation keyframes for cart pulse */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Magic Elements -->
+    <div class="floating-crystal" style="top: 20%; left: 10%;"></div>
+    <div class="floating-crystal" style="top: 60%; left: 80%; animation-delay: -5s;"></div>
+    <div class="floating-crystal" style="top: 80%; left: 20%; animation-delay: -10s;"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hat-wizard"></i>
+                </div>
+                <div>
+                    <h1><a href="index.html">Majik Bloom Seeds</a></h1>
+                    <span class="tagline">Cultivate the Magic</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="seeds.html" class="active">Seeds</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li class="cart-icon"><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Magical Seeds</h1>
+            <p>Discover our exclusive collection of exotic cannabis seeds, each with unique magical properties.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-page">
+        <div class="container">
+            <!-- Filter and Search -->
+            <div class="filter-section">
+                <div class="filter-options">
+                    <select class="filter-select" id="strain-filter">
+                        <option value="all">All Types</option>
+                        <option value="reg">Regular</option>
+                        <option value="fem">Feminized</option>
+                        <option value="cbd">CBD/Type II</option>
+                    </select>
+                    <select class="filter-select" id="sort-filter">
+                        <option value="featured">Sort by: Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search strains...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-container">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Majik Bloom Seeds</h3>
+                    <p>Cultivating magical experiences through premium genetics and mystical cultivation practices.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/majik.bloom"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="seeds.html">Seeds</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="returns.html">Returns</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2021 - 2026 Majik Bloom Seeds | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
+                });
+            }
+            
+            // Product data with strain types and individual page links
+            const products = [
+                {
+                    id: 1,
+                    name: 'Prizm 33',
+                    description: 'A regal strain with mystical properties and enchanting aromas.',
+                    price: 59.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'fem',
+                    page: 'prizm-33.html'
+                },
+                {
+                    id: 2,
+                    name: 'Jaded Dragon',
+                    description: 'Fiery genetics with legendary potency and mystical effects.',
+                    price: 52.99,
+                    image: 'images/mb2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'reg',
+                    page: 'jaded-dragon.html'
+                },
+                {
+                    id: 3,
+                    name: 'Violet Rayz',
+                    description: 'Heavenly genetics that transport you to another dimension.',
+                    price: 59.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'fem',
+                    page: 'violet.html'
+                },
+                {
+                    id: 4,
+                    name: 'Abara-Kadabz',
+                    description: 'Lunar-inspired genetics with calming, ethereal effects.',
+                    price: 59.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'fem',
+                    page: 'abarak.html'
+                },
+                {
+                    id: 5,
+                    name: 'Billy Mountain',
+                    description: 'Ancient strain known for enhancing focus and creativity.',
+                    price: 52.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'reg',
+                    page: 'billy-mtn.html'
+                },
+                {
+                    id: 6,
+                    name: 'Hoku KZ Racer Auto Mix',
+                    description: 'Fast finishing CBD mix from Hoku Seed Co 25pk.',
+                    price: 2.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'cbd',
+                    page: 'kz-racer.html'
+                },
+           {
+                    id: 7,
+                    name: 'Icy Grape F3',
+                    description: 'Earthy tones with whimsical, uplifting effects.',
+                    price: 52.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'reg',
+                    page: 'icy-grape.html'
+                },
+           {
+                    id: 8,
+                    name: 'Black Gelato S1',
+                    description: 'Earthy tones with whimsical, uplifting effects.',
+                    price: 72.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'fem',
+                    page: 'bg.html'
+                },
+           {
+                    id: 9,
+                    name: 'LCG S1',
+                    description: 'Earthy tones with whimsical, uplifting effects.',
+                    price: 72.99,
+                    image: 'images/MB2.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+                    strain: 'fem',
+                    page: 'lcg.html'
+                },
+           
+               
+            ];
+            
+            // DOM Elements
+            const productsContainer = document.getElementById('products-container');
+            const strainFilter = document.getElementById('strain-filter');
+            const sortFilter = document.getElementById('sort-filter');
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            
+            // Cart functionality
+            let cart = JSON.parse(localStorage.getItem('majikBloomCart')) || [];
+            
+            // Initialize the page
+            function initPage() {
+                renderProducts(products);
+                setupEventListeners();
+                updateCartCount();
+                createFloatingCrystals();
+            }
+            
+            // Set up event listeners for filters and search
+            function setupEventListeners() {
+                strainFilter.addEventListener('change', filterProducts);
+                sortFilter.addEventListener('change', filterProducts);
+                searchBtn.addEventListener('click', searchProducts);
+                searchInput.addEventListener('keyup', function(event) {
+                    if (event.key === 'Enter') {
+                        searchProducts();
+                    }
+                });
+            }
+            
+            // Filter and sort products based on selections
+            function filterProducts() {
+                const selectedStrain = strainFilter.value;
+                const sortBy = sortFilter.value;
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                let filteredProducts = products.filter(product => {
+                    // Filter by strain
+                    const strainMatch = selectedStrain === 'all' || product.strain === selectedStrain;
+                    
+                    // Filter by search term
+                    const searchMatch = product.name.toLowerCase().includes(searchTerm) || 
+                                       product.description.toLowerCase().includes(searchTerm);
+                    
+                    return strainMatch && searchMatch;
+                });
+                
+                // Sort products
+                switch(sortBy) {
+                    case 'price-low':
+                        filteredProducts.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-high':
+                        filteredProducts.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'name':
+                        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                        break;
+                    // Default is 'featured' - no sorting needed
+                }
+                
+                renderProducts(filteredProducts);
+            }
+            
+            // Search products based on input
+            function searchProducts() {
+                filterProducts();
+            }
+            
+            // Render products to the page
+            function renderProducts(productsToRender) {
+                if (productsToRender.length === 0) {
+                    productsContainer.innerHTML = `
+                        <div class="no-products">
+                            <h3>No Magical Seeds Found</h3>
+                            <p>Try adjusting your filters or search terms to discover our mystical strains.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                productsContainer.innerHTML = productsToRender.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="product-overlay">
+                                <a href="${product.page}" class="btn btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">$${product.price.toFixed(2)}</div>
+                            <button class="btn btn-add-to-cart" data-id="${product.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Reattach event listeners to the new Add to Cart buttons
+                const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = this.getAttribute('data-id');
+                        addToCart(productId, this);
+                    });
+                });
+            }
+            
+            // Add to cart functionality
+            function addToCart(productId, button) {
+                const product = products.find(p => p.id == productId);
+                if (!product) return;
+                
+                // Check if product is already in cart
+                const existingItem = cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        quantity: 1
+                    });
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('majikBloomCart', JSON.stringify(cart));
+                
+                // Update cart count
+                updateCartCount();
+                
+                // Show magical notification
+                showMagicalNotification(`${product.name} magically added to your cart!`);
+                
+                // Add magical effect to button
+                if (button) {
+                    const originalHTML = button.innerHTML;
+                    const originalBackground = button.style.background;
+                    
+                    button.innerHTML = '<i class="fas fa-sparkles"></i> Magically Added!';
+                    button.style.background = 'linear-gradient(45deg, var(--magic-green), var(--wizard-blue))';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML;
+                        button.style.background = originalBackground;
+                    }, 2000);
+                }
+            }
+            
+            // Update cart count
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                    cartCount.textContent = totalItems;
+                    
+                    // Add magical pulse effect when cart updates
+                    if (totalItems > 0) {
+                        cartCount.style.animation = 'pulse 0.5s ease-in-out';
+                        setTimeout(() => {
+                            cartCount.style.animation = '';
+                        }, 500);
+                    }
+                }
+            }
+            
+            // Magical notification function
+            function showMagicalNotification(message) {
+                // Create notification element
+                const notification = document.createElement('div');
+                notification.className = 'notification success';
+                
+                notification.innerHTML = `
+                    <div class="notification-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Success</div>
+                        <div class="notification-message">${message}</div>
+                    </div>
+                    <button class="notification-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Show notification with animation
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                // Close button functionality
+                const closeBtn = notification.querySelector('.notification-close');
+                closeBtn.addEventListener('click', () => {
+                    closeNotification(notification);
+                });
+                
+                // Auto-remove after 5 seconds
+                const autoClose = setTimeout(() => {
+                    closeNotification(notification);
+                }, 5000);
+                
+                // Function to close notification
+                function closeNotification(notificationEl) {
+                    clearTimeout(autoClose);
+                    notificationEl.classList.remove('show');
+                    notificationEl.classList.add('hide');
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(notificationEl)) {
+                            document.body.removeChild(notificationEl);
+                        }
+                    }, 500);
+                }
+            }
+            
+            // Create floating crystals
+            function createFloatingCrystals() {
+                for (let i = 0; i < 5; i++) {
+                    createFloatingCrystal();
+                }
+            }
+            
+            function createFloatingCrystal() {
+                const crystal = document.createElement('div');
+                crystal.className = 'floating-crystal';
+                crystal.style.left = Math.random() * 100 + '%';
+                crystal.style.top = Math.random() * 100 + '%';
+                crystal.style.animationDelay = '-' + (Math.random() * 20) + 's';
+                crystal.style.width = (10 + Math.random() * 20) + 'px';
+                crystal.style.height = crystal.style.width;
+                
+                document.body.appendChild(crystal);
+            }
+            
+            // Initialize the page
+            initPage();
+        });
+    </script>
+</body>
+</html>
